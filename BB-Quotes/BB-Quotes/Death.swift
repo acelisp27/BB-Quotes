@@ -12,9 +12,6 @@ struct Death: Decodable {
     let image: URL
     let details: String
     let lastWords: String
-    let death: Death?
-    
-    
     
     
 }
