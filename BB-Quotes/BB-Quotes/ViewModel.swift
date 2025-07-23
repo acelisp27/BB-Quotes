@@ -24,15 +24,14 @@ class ViewModel {
     var quote: Quote
     var character: Char
     
-
     init(){
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
-        let quoteData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleQuote", withExtension: "json")!)
+        let quoteData = try! Data(contentsOf: Bundle.main.url(forResource: "samplequote", withExtension: "json")!)
         quote = try! decoder.decode(Quote.self, from: quoteData)
         
-        let characterData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleCharacter", withExtension: "json")!)
+        let characterData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecharacter", withExtension: "json")!)
         character = try! decoder.decode(Char.self, from: characterData)
     }
     
