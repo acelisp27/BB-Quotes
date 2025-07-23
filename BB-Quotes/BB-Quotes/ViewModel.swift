@@ -13,7 +13,7 @@ class ViewModel {
     enum FetchStatus {
         case notStarted
         case fetching
-        case sucess
+        case success
         case failed(error: Error)
     }
     
@@ -34,6 +34,22 @@ class ViewModel {
         
         let characterData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleCharacter", withExtension: "json")!)
         character = try! decoder.decode(Char.self, from: characterData)
+    }
+    
+    func getData(for show: String) async {
+        status = .fetching
+        
+        do {
+            quote = try await fetcher.fetchQuote(from: show)
+            
+            character = try await fetcher.fecthCharacter(quote.character)
+            
+            character.death = try await fetcher.fetchDeath(for: character.name)
+            
+            status = .success
+        } catch {
+            status = .failed(error: error)
+        }
     }
     
 }
