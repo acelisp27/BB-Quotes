@@ -15,3 +15,13 @@ struct BB_QuotesApp: App {
         }
     }
 }
+
+/*
+ Version 2 Feature List:
+ - Add El Camino tab ✅
+ - Utilize all character images on CharacterView ✅
+ - On CharacterView, auto-scroll to bottom after status is shown ✅
+ - Fetch episode data
+ - Extend String to get rid of long image and color names ✅
+ - Create static constants for show names ✅
+ */
